@@ -3,10 +3,12 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import todoApp from './reducers'
+import todoReducers from './reducers'
 import App from './components/App'
+import { loadState } from './localStorage'
 
-const store = createStore(todoApp)
+const persistedState = loadState()
+const store = createStore(todoReducers)
 
 render(
   <Provider store={store}>
